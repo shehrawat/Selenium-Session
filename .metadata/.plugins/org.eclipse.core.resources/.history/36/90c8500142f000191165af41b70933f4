@@ -1,0 +1,33 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LocatorConcept {
+
+	public static void main(String[] args) {
+
+        System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/signup");
+        
+        //1.xpath
+//        driver.findElement(By.xpath("//*[@id=\"u_0_n\"]")).sendKeys("Ajay");
+//        driver.findElement(By.xpath("//*[@id=\"u_0_p\"]")).sendKeys("Singh");
+//        driver.findElement(By.xpath("//*[@id=\"u_0_s\"]")).sendKeys("9205725232");
+//        driver.findElement(By.xpath("//*[@id=\"u_0_z\"]")).sendKeys("qwerty@@");
+        
+        //2.id        
+//        driver.findElement(By.id("u_0_n")).sendKeys("Ajay");
+//        driver.findElement(By.id("u_0_p")).sendKeys("Singh");
+        
+        //3.name
+        driver.findElement(By.name("firstname")).sendKeys("Ajay");
+        driver.findElement(By.name("lastname")).sendKeys("Ajay");
+        
+        driver.quit();
+        
+	}
+
+}
