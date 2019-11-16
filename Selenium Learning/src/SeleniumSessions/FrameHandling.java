@@ -1,0 +1,36 @@
+package SeleniumSessions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameHandling {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        
+        //dynamic wait
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        
+        driver.get("https://ui.cogmento.com/");
+        
+        driver.findElement(By.name("email")).sendKeys("ajayshehrawat2622@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("Shehrawat2622@");
+        driver.findElement(By.xpath("//*[@class=\"ui fluid large blue submit button\"]")).click();
+        
+        Thread.sleep(3000);
+        
+        driver.switchTo().frame("mainpanel");
+        
+        driver.findElement(By.xpath("//*[@id=\"main-nav\"]/a[3]")).click();
+	}
+
+}

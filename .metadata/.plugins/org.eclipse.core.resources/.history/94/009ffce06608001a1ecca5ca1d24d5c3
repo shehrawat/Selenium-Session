@@ -1,0 +1,19 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DragAndDropConcept {
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        
+        driver.get("https://jqueryui.com/droppable/");
+	}
+
+}

@@ -9,5 +9,10 @@
 	<classpathentry kind="lib" path="D:/All Jar Files/Selenium/libs/guava-25.0-jre.jar"/>
 	<classpathentry kind="lib" path="D:/All Jar Files/Selenium/libs/okhttp-3.11.0.jar"/>
 	<classpathentry kind="lib" path="D:/All Jar Files/Selenium/libs/okio-1.14.0.jar"/>
+	<classpathentry kind="lib" path="D:/All Jar Files/commons-io-2.6/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="D:/All Jar Files/commons-io-2.6/commons-io-2.6-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/All Jar Files/commons-io-2.6/commons-io-2.6-sources.jar"/>
+	<classpathentry kind="lib" path="D:/All Jar Files/commons-io-2.6/commons-io-2.6-tests.jar"/>
+	<classpathentry kind="lib" path="D:/All Jar Files/commons-io-2.6/commons-io-2.6-test-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

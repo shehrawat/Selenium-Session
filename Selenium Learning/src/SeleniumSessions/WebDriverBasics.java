@@ -41,7 +41,7 @@ public class WebDriverBasics {
 
         String title = driver.getTitle();
         
-        System.out.println(title);
+        System.out.println("Title is: "+title);
         
         //validatition point:
         if(title.equals("Customer Reviews Platform for Consumers & Business | Psydro")) {

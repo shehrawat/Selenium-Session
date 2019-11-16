@@ -1,0 +1,29 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AlertPopUpHandle {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
+        
+        driver.findElement(By.name("proceed")).click();
+        
+        Thread.sleep(5000);
+        
+        Alert alert = driver.switchTo().alert();
+        
+        alert.getText();
+        System.out.println(alert.getText());
+        alert.accept(); //click on ok button
+        
+//        alert.dismiss(); //click on cancel button
+	}
+
+}
