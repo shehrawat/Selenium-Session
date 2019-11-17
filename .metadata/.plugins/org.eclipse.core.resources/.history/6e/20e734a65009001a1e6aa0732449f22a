@@ -1,0 +1,26 @@
+package SeleniumSessions;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class ResponsiveConcept {
+
+	public static void main(String[] args) {
+
+		Map<String, String> mobileEmulation = new HashMap<>();
+
+		mobileEmulation.put("deviceName", "Nexus 5");
+
+
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+		WebDriver driver = new ChromeDriver(chromeOptions);
+		driver.get("https://psydro.com");
+	}
+
+}

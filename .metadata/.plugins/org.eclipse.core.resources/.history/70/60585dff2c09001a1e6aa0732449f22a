@@ -1,0 +1,48 @@
+package SeleniumSessions;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class ReadPropFile {
+	
+	static WebDriver driver;
+
+	public static void main(String[] args) throws IOException {
+		
+		Properties prop = new Properties();
+		
+		FileInputStream ip = new FileInputStream("D:\\Selenium Sessions\\Selenium Learning\\src\\SeleniumSessions\\config.properties");
+		
+		prop.load(ip);
+		
+		String browsername = prop.getProperty("browser");
+		System.out.println(browsername);
+		
+		String url = prop.getProperty("URL");
+		System.out.println(url);
+		
+		if(browsername.equals("chrome")) {
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        	driver = new ChromeDriver();
+		}
+		else if(browsername.equals("FF")) {
+			System.setProperty("webdriver.gecko.driver","D:\\All Jar Files\\Firefox\\geckodriver.exe");
+	        driver = new FirefoxDriver();
+		}
+		
+		else if(browsername.equals("IE")) {
+			System.setProperty("webdriver.gecko.driver","D:\\All Jar Files\\Firefox\\geckodriver.exe");
+	        driver = new InternetExplorerDriver();
+			
+		}
+		
+		
+	}
+
+}

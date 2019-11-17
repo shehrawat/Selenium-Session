@@ -1,0 +1,35 @@
+package SeleniumSessions;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ReadPropFile {
+
+	public static void main(String[] args) throws IOException {
+
+		Properties prop = new Properties();
+		
+		FileInputStream ip = new FileInputStream("D:\\Selenium Sessions\\Selenium Learning\\src\\SeleniumSessions\\config.properties");
+		
+		prop.load(ip);
+		
+		String browsername = prop.getProperty("browser");
+		System.out.println(browsername);
+		
+		String url = prop.getProperty("URL");
+		System.out.println(url);
+		
+		if(browser.) {
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+		}
+		
+		
+	}
+
+}

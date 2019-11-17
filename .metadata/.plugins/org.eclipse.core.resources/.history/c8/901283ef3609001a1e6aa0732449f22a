@@ -1,0 +1,44 @@
+package SeleniumSessions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+public class HtmlUnitDriverConcept {
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        //WebDriver driver = new ChromeDriver();
+		
+		WebDriver driver = new HtmlUnitDriver();
+		
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        
+        //dynamic wait
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        
+        driver.get("http://psydro.com");
+        
+        System.out.println(driver.getTitle());
+        
+        driver.findElement(By.xpath("//a[@class='fancybox tour_login']")).click();
+        driver.findElement(By.xpath("//input[@id='uemail']")).sendKeys("suvendra.hestabit@gmail.com");
+        driver.findElement(By.xpath("//input[@id='upassword']")).sendKeys("123456");
+		driver.findElement(By.xpath("//*[@id=\"normal_user_login\"]/fieldset[3]/div/div[2]/label/div")).click();
+		
+//		System.out.println(driver.getTitle());
+		
+		
+		
+		
+		
+
+	}
+
+}

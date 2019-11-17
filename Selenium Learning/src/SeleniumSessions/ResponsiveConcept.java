@@ -1,0 +1,43 @@
+package SeleniumSessions;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class ResponsiveConcept {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		Map<String, String> mobileEmulation = new HashMap<>();
+		Map<String, Object> deviceMetrics = new HashMap<>();
+
+		mobileEmulation.put("deviceName", "iPhone 5/SE");
+		deviceMetrics.put("width", 320);
+		deviceMetrics.put("height", 568);
+		deviceMetrics.put("pixelRatio", 2);
+
+
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+		
+		System.setProperty("webdriver.chrome.driver","D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver(chromeOptions);
+		driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+		driver.get("https://psydro.com");
+		driver.findElement(By.xpath("/html/body/header/div[2]/div/div/div[2]/div")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/header/div[2]/div/div/div[2]/nav/ul/li[6]/a")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"memail\"]")).sendKeys("suvendra.hestabit@gmail.com");
+		driver.findElement(By.xpath("//*[@id=\"mpassword\"]")).sendKeys("123456");
+		driver.findElement(By.xpath("//input[@value='Submit']")).click();
+		
+		
+	}
+
+}

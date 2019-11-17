@@ -1,0 +1,99 @@
+package SeleniumSessions;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class JavaScriptExecutorConcept {
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\All Jar Files\\Chromedriver\\New exev77.10\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        
+//        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        
+        //dynamic wait
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        
+        driver.get("http://psydro.com");
+        
+        driver.findElement(By.xpath("/html/body/header/div[2]/div/div/div[2]/nav/ul/li[5]/a/div[1]"));
+//        driver.findElement(By.xpath("//input[@id='uemail']")).sendKeys("suvendra.hestabit@gmail.com");
+//        driver.findElement(By.xpath("//input[@id='upassword']")).sendKeys("123456");
+//		driver.findElement(By.xpath("//*[@id=\"normal_user_login\"]/fieldset[3]/div/div[2]/label/div")).click();
+		
+		//executeScript - to execute javascript code
+		
+        //highlight the element
+		WebElement loginbutton = driver.findElement(By.xpath("/html/body/header/div[2]/div/div/div[2]/nav/ul/li[5]/a/div[1]"));
+		flash(loginbutton, driver);	//highlight the element
+		
+		//draw boder
+		drawBorder(loginbutton, driver); //draw a border
+		Thread.sleep(2000);
+		
+		//take screenshot
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        // Now you can do whatever you need to do with it, for example copy somewhere
+        FileUtils.copyFile(scrFile, new File("D:\\Screenshots\\For Companies.png"));
+        
+        //generate alert
+        //generateAlert(driver, "There is an issue with For Companies button on Home page page");
+        
+        //click on any element
+        clickElementByJavascript(loginbutton, driver);
+        
+        //refresh the page
+        driver.navigate().refresh();
+		
+	}
+	
+	public static void flash(WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		String bgcolor = element.getCssValue("backgroundcolor");
+		for(int i=0;i<1;i++) {
+			changeColor("rgb(0,200,0)",element,driver);
+			changeColor(bgcolor, element,driver);
+		}
+	}
+
+	public static void changeColor(String color, WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.backgroundColor ='"+color+"'", element);
+		
+		try {
+			Thread.sleep(2000);
+		}catch(InterruptedException e) {
+			
+		}	
+	}
+	
+	public static void drawBorder(WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
+	}
+	
+	public static void generateAlert(WebDriver driver, String message) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("alert('"+message+"')");
+	}
+	
+	public static void clickElementByJavascript(WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", element);
+	}
+	
+
+}
